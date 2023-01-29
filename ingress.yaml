@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-wildcard-host-shubham-django
+  namespace: django-todo-app
+spec:
+  rules:
+  - host: "django-todo-example-batch-2.info"
+    http:
+      paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: django-todo-service
+              port:
+                number: 80
+
